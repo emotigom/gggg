@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Creative Portfolio - 슈퍼 베이의 탄생</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff9f43;
+            --secondary-color: #ffca28;
+            --background-color: #fffdf0;
+            --text-color: #4a4a4a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Gamja Flower', cursive;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* 메인 컨텐츠 컨테이너 */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* 비디오 섹션 */
+        .video-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border: 3px dashed var(--secondary-color);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            margin-bottom: 1.5rem;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* 프로젝트 소개 섹션 */
+        .intro-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .intro-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+        }
+
+        .card h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* 스토리보드 요약 (타임라인 스타일) */
+        .story-timeline {
+            margin-top: 1.5rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+
+        .timeline-time {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 1rem;
+            white-space: nowrap;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #3e3e3e;
+            color: #f5f5f5;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        /* 인터랙티브 응원 버튼 */
+        .cheer-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            font-family: 'Gamja Flower', cursive;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 159, 67, 0.4);
+            margin-top: 1rem;
+        }
+
+        .cheer-btn:hover {
+            background: #ff8c1a;
+            transform: scale(1.05);
+        }
+
+        .cheer-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Video Portfolio</h1>
+        <p>곰돌이 베이의 위기 극복과 성장 이야기</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="video-section">
+            <div class="video-wrapper">
+                <video controls autoplay muted loop>
+                    <source src="비디오 프로젝트 1.mp4" type="video/mp4">
+                    브라우저가 비디오 태그를 지원하지 않습니다.
+                </video>
+            </div>
+            <button class="cheer-btn" onclick="cheerUp()">❤️ 베이 응원하기 (클릭!)</button>
+            <p id="cheer-count" style="margin-top: 0.5rem; font-weight: bold;"></p>
+        </section>
+
+        <div class="intro-section">
+            <article class="card">
+                <h2>작품 소개: 슈퍼 베이의 탄생</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    평화롭던 마을에 찾아온 갑작스러운 재앙... 무기력하게 무너진 마을을 보며 아기곰 '베이'는 슬픔을 딛고 일어서기로 결심합니다. 
+                    혹독한 훈련과 끝없는 노력 끝에 하늘의 부름을 받아 진정한 영웅 <strong>'슈퍼 베이'</strong>로 거듭나는 감동적인 성장 드라마입니다!
+                </p>
+                
+                <h3>🎬 줄거리 요약</h3>
+                <div class="story-timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">00:00</span>
+                        <div class="timeline-content">
+                            <h4>평화의 끝, 그리고 위기</h4>
+                            <p>평화롭던 마을에 벼락이 치고 마을이 파괴되자 베이는 절망합니다.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">00:02</span>
+                        <div class="timeline-content">
+                            <h4>혹독한 수련</h4>
+                            <p>눈물을 닦고 무거운 바위를 들며 스스로 강해지기 위해 피땀 흘려 노력합니다.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">00:05</span>
+                        <div class="timeline-content">
+                            <h4>영웅의 탄생</h4>
+                            <p>마침내 붉은 망토를 두른 멋진 '슈퍼 베이'가 되어 모두를 지키기 위해 나섭니다!</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <aside class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h2>제작 정보</h2>
+                    <p style="margin-bottom: 1rem;"><strong>제작자:</strong> 멋진 크리에이터</p>
+                    <p style="margin-bottom: 1rem;"><strong>형식:</strong> 4컷 만화 스타일 모션 비디오</p>
+                    <p style="margin-bottom: 1rem;"><strong>주요 테마:</strong> 성장, 용기, 영웅, 귀여움</p>
+                </div>
+                <div style="background: #fff8e1; padding: 1rem; border-radius: 10px; border: 1px solid #ffe082;">
+                    <span style="font-size: 1.2rem;">💡</span> <strong>Creator's Note:</strong><br>
+                    작은 아기곰도 노력하면 세상을 구할 수 있는 영웅이 될 수 있다는 희망을 전하고 싶었습니다.
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026. My Video Portfolio All rights reserved.</p>
+    </footer>
+
+    <script>
+        let count = 0;
+        function cheerUp() {
+            count++;
+            const countText = document.getElementById('cheer-count');
+            countText.innerText = `🎉 베이가 힘을 +${count}만큼 얻었습니다! 축하해요!`;
+            
+            // 귀여운 이모티콘 팝업 효과
+            const colors = ['#ff9f43', '#ffca28', '#ff4d4d', '#4bc0c0'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            countText.style.color = randomColor;
+        }
+    </script>
+</body>
+</html>
